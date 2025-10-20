@@ -54,6 +54,18 @@
                 <img src="images/trash.png" alt="Trash" class="dock-icon">
                 <span class="dock-label">Trash</span>
             </div>
+            <div class="dock-item" data-app="swag">
+                <img src="js/snake.png" alt="Neuko Snake" class="dock-icon">
+                <span class="dock-label">Neuko Snake</span>
+            </div>
+            <div class="dock-item" data-app="puzzle">
+                <img src="images/puzzleimage.png" alt="Puzzle Game" class="dock-icon">
+                <span class="dock-label">Puzzle Game</span>
+            </div>
+            <div class="dock-item" data-app="memes">
+                <img src="memo.png" alt="Memes Generator" class="dock-icon">
+                <span class="dock-label">Memes Generator</span>
+            </div>
         </div>
     </div>
     
@@ -730,6 +742,161 @@
         </div>
     </div>
     
+    <!-- Swag Modal -->
+    <div id="swag-modal" class="swag-modal">
+        <div class="swag-modal-content">
+            <div class="swag-modal-header" id="swag-drag-handle">
+                <div class="swag-window-controls">
+                    <div class="swag-control swag-close" id="swag-close"></div>
+                    <div class="swag-control swag-minimize" id="swag-minimize"></div>
+                    <div class="swag-control swag-maximize" id="swag-maximize"></div>
+                </div>
+                <div class="swag-title-bar">
+                    <img src="js/snake.png" alt="Neuko Snake" class="swag-title-icon">
+                    <span class="swag-title">Neuko Snake</span>
+                </div>
+            </div>
+            <div class="swag-container">
+                <div class="snake-game-container">
+                    <canvas id="snake-canvas" class="snake-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Puzzle Game Modal -->
+    <div id="puzzle-modal" class="puzzle-modal">
+        <div class="puzzle-modal-content">
+            <div class="puzzle-modal-header" id="puzzle-drag-handle">
+                <div class="puzzle-window-controls">
+                    <div class="puzzle-control puzzle-close" id="puzzle-close"></div>
+                    <div class="puzzle-control puzzle-minimize" id="puzzle-minimize"></div>
+                    <div class="puzzle-control puzzle-maximize" id="puzzle-maximize"></div>
+                </div>
+                <div class="puzzle-title-bar">
+                    <img src="images/puzzleimage.png" alt="Puzzle Game" class="puzzle-title-icon">
+                    <span class="puzzle-title">Puzzle Game</span>
+                </div>
+            </div>
+            <div class="puzzle-container">
+                <div class="puzzle-game-container">
+                    <div id="fifteen-puzzle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Memes Generator Modal -->
+    <div id="memes-modal" class="memes-modal">
+        <div class="memes-modal-content">
+            <div class="memes-modal-header" id="memes-drag-handle">
+                <div class="memes-window-controls">
+                    <div class="memes-control memes-close" id="memes-close"></div>
+                    <div class="memes-control memes-minimize" id="memes-minimize"></div>
+                    <div class="memes-control memes-maximize" id="memes-maximize"></div>
+                </div>
+                <div class="memes-title-bar">
+                    <img src="memo.png" alt="Memes Generator" class="memes-title-icon">
+                    <span class="memes-title">Memes Generator</span>
+                </div>
+            </div>
+            <div class="memes-container">
+                <div class="meme-generator">
+                    <!-- Main Canvas Area -->
+                    <div class="canvas-section">
+                        <div class="meme-canvas" id="memeCanvas">
+                            <img id="memeImage" src="memegenerator/images/cat-meme.jpg" alt="Meme Template">
+                            <div class="text-overlay top-text" id="topText">
+                                <span>TEXT</span>
+                            </div>
+                            <div class="text-overlay bottom-text" id="bottomText">
+                                <span>TEXT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Control Panel -->
+                    <div class="control-panel">
+                        <div class="panel-section">
+                            <h3>Text</h3>
+                            <div class="input-group">
+                                <label>Text Content:</label>
+                                <input type="text" id="textContent" value="TEXT" placeholder="Enter text...">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label>Font:</label>
+                                <select id="fontSelect">
+                                    <option value="Arial">Arial</option>
+                                    <option value="Impact">Impact</option>
+                                    <option value="Comic Sans MS">Comic Sans MS</option>
+                                    <option value="Times New Roman">Times New Roman</option>
+                                    <option value="Helvetica">Helvetica</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Stroke:</label>
+                                <div class="stroke-controls">
+                                    <input type="color" id="strokeColor" value="#000000">
+                                    <input type="number" id="strokeWidth" value="6" min="0" max="20">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Size:</label>
+                                <div class="size-controls">
+                                    <input type="number" id="sizeX" value="1.0" step="0.1" min="0.1" max="5.0">
+                                    <input type="number" id="sizeY" value="1.0" step="0.1" min="0.1" max="5.0">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Position:</label>
+                                <div class="position-controls">
+                                    <input type="number" id="posX" value="264.64" step="1">
+                                    <input type="number" id="posY" value="30" step="1">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <label>Rotation:</label>
+                                <input type="number" id="rotation" value="0" step="1" min="-180" max="180">
+                            </div>
+
+                            <div class="input-group">
+                                <label>Text Color:</label>
+                                <input type="color" id="textColor" value="#ffffff">
+                            </div>
+
+                            <div class="text-selection">
+                                <button class="text-btn active" data-text="top">Top Text</button>
+                                <button class="text-btn" data-text="bottom">Bottom Text</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Templates Section -->
+                <div class="templates-section">
+                    <h4>Other Templates</h4>
+                    <div class="templates-grid" id="templatesGrid">
+                        <!-- Templates will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-save" id="saveBtn">Download Meme</button>
+                    <button class="btn btn-copy" id="copyBtn">Copy Meme</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/snake-game.js"></script>
+    <script src="js/puzzle-game.js"></script>
+    <script src="js/fifteen_puzzle.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
