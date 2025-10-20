@@ -62,6 +62,36 @@ document.addEventListener('DOMContentLoaded', function() {
             } else if (appName === 'firefox') {
                 // Open NEUKO website
                 window.open('https://www.neuko.ai/', '_blank');
+            } else if (appName === 'swag') {
+                // Open Swag modal
+                const swagModal = document.getElementById('swag-modal');
+                if (swagModal) {
+                    swagModal.style.display = 'block';
+                    // Initialize snake game after a short delay to ensure modal is visible
+                    setTimeout(() => {
+                        initSnakeGame();
+                    }, 100);
+                }
+            } else if (appName === 'puzzle') {
+                // Open Puzzle modal
+                const puzzleModal = document.getElementById('puzzle-modal');
+                if (puzzleModal) {
+                    puzzleModal.style.display = 'block';
+                    // Initialize puzzle game after a short delay to ensure modal is visible
+                    setTimeout(() => {
+                        initPuzzleGame();
+                    }, 100);
+                }
+            } else if (appName === 'memes') {
+                // Open Memes Generator modal
+                const memesModal = document.getElementById('memes-modal');
+                if (memesModal) {
+                    memesModal.style.display = 'block';
+                    // Initialize meme generator after a short delay to ensure modal is visible
+                    setTimeout(() => {
+                        initMemeGenerator();
+                    }, 100);
+                }
             }
             // TODO: Add other app-specific functionality here
         });
@@ -343,6 +373,724 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('PFP Generator modal element not found during setup');
     }
 });
+
+// Swag Modal Event Handlers
+function setupSwagModalHandlers() {
+    console.log('Setting up swag modal event handlers...');
+    
+    const swagClose = document.getElementById('swag-close');
+    if (swagClose) {
+        swagClose.addEventListener('click', function() {
+            const swagModal = document.getElementById('swag-modal');
+            if (swagModal) {
+                swagModal.style.display = 'none';
+                console.log('Swag modal closed via close button');
+            }
+        });
+        console.log('Swag close button handler added');
+    } else {
+        console.error('Swag close button not found');
+    }
+    
+    // Swag modal minimize handler
+    const swagMinimize = document.querySelector('.swag-minimize');
+    if (swagMinimize) {
+        swagMinimize.addEventListener('click', function() {
+            const swagModal = document.getElementById('swag-modal');
+            if (swagModal) {
+                swagModal.style.display = 'none';
+                console.log('Swag modal minimized');
+            }
+        });
+        console.log('Swag minimize button handler added');
+    } else {
+        console.error('Swag minimize button not found');
+    }
+    
+    // Swag modal maximize handler
+    const swagMaximize = document.querySelector('.swag-maximize');
+    if (swagMaximize) {
+        swagMaximize.addEventListener('click', function() {
+            const swagModal = document.getElementById('swag-modal');
+            if (swagModal) {
+                // Toggle between maximized and normal size
+                if (swagModal.classList.contains('maximized')) {
+                    swagModal.classList.remove('maximized');
+                    swagModal.querySelector('.swag-modal-content').style.width = '90%';
+                    swagModal.querySelector('.swag-modal-content').style.height = '80%';
+                    swagModal.querySelector('.swag-modal-content').style.maxWidth = '800px';
+                    swagModal.querySelector('.swag-modal-content').style.maxHeight = '600px';
+                } else {
+                    swagModal.classList.add('maximized');
+                    swagModal.querySelector('.swag-modal-content').style.width = '95%';
+                    swagModal.querySelector('.swag-modal-content').style.height = '95%';
+                    swagModal.querySelector('.swag-modal-content').style.maxWidth = 'none';
+                    swagModal.querySelector('.swag-modal-content').style.maxHeight = 'none';
+                }
+                console.log('Swag modal toggled maximize');
+            }
+        });
+        console.log('Swag maximize button handler added');
+    } else {
+        console.error('Swag maximize button not found');
+    }
+    
+    // Close swag modal when clicking outside
+    const swagModal = document.getElementById('swag-modal');
+    if (swagModal) {
+        swagModal.addEventListener('click', function(e) {
+            if (e.target === swagModal) {
+                swagModal.style.display = 'none';
+                console.log('Swag modal closed via outside click');
+            }
+        });
+        console.log('Swag modal outside click handler added');
+    } else {
+        console.error('Swag modal element not found during setup');
+    }
+    
+    console.log('Swag modal event handlers setup complete');
+}
+
+// Initialize swag modal handlers when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    setupSwagModalHandlers();
+    setupPuzzleModalHandlers();
+    setupMemesModalHandlers();
+});
+
+// Puzzle Modal Event Handlers
+function setupPuzzleModalHandlers() {
+    console.log('Setting up puzzle modal event handlers...');
+    
+    const puzzleClose = document.getElementById('puzzle-close');
+    if (puzzleClose) {
+        puzzleClose.addEventListener('click', function() {
+            const puzzleModal = document.getElementById('puzzle-modal');
+            if (puzzleModal) {
+                puzzleModal.style.display = 'none';
+                console.log('Puzzle modal closed via close button');
+            }
+        });
+        console.log('Puzzle close button handler added');
+    } else {
+        console.error('Puzzle close button not found');
+    }
+    
+    // Puzzle modal minimize handler
+    const puzzleMinimize = document.querySelector('.puzzle-minimize');
+    if (puzzleMinimize) {
+        puzzleMinimize.addEventListener('click', function() {
+            const puzzleModal = document.getElementById('puzzle-modal');
+            if (puzzleModal) {
+                puzzleModal.style.display = 'none';
+                console.log('Puzzle modal minimized');
+            }
+        });
+        console.log('Puzzle minimize button handler added');
+    } else {
+        console.error('Puzzle minimize button not found');
+    }
+    
+    // Puzzle modal maximize handler
+    const puzzleMaximize = document.querySelector('.puzzle-maximize');
+    if (puzzleMaximize) {
+        puzzleMaximize.addEventListener('click', function() {
+            const puzzleModal = document.getElementById('puzzle-modal');
+            if (puzzleModal) {
+                // Toggle between maximized and normal size
+                if (puzzleModal.classList.contains('maximized')) {
+                    puzzleModal.classList.remove('maximized');
+                    puzzleModal.querySelector('.puzzle-modal-content').style.width = '90%';
+                    puzzleModal.querySelector('.puzzle-modal-content').style.height = '80%';
+                    puzzleModal.querySelector('.puzzle-modal-content').style.maxWidth = '600px';
+                    puzzleModal.querySelector('.puzzle-modal-content').style.maxHeight = '700px';
+                } else {
+                    puzzleModal.classList.add('maximized');
+                    puzzleModal.querySelector('.puzzle-modal-content').style.width = '95%';
+                    puzzleModal.querySelector('.puzzle-modal-content').style.height = '95%';
+                    puzzleModal.querySelector('.puzzle-modal-content').style.maxWidth = 'none';
+                    puzzleModal.querySelector('.puzzle-modal-content').style.maxHeight = 'none';
+                }
+                console.log('Puzzle modal toggled maximize');
+            }
+        });
+        console.log('Puzzle maximize button handler added');
+    } else {
+        console.error('Puzzle maximize button not found');
+    }
+    
+    // Close puzzle modal when clicking outside
+    const puzzleModal = document.getElementById('puzzle-modal');
+    if (puzzleModal) {
+        puzzleModal.addEventListener('click', function(e) {
+            if (e.target === puzzleModal) {
+                puzzleModal.style.display = 'none';
+                console.log('Puzzle modal closed via outside click');
+            }
+        });
+        console.log('Puzzle modal outside click handler added');
+    } else {
+        console.error('Puzzle modal element not found during setup');
+    }
+    
+    console.log('Puzzle modal event handlers setup complete');
+}
+
+// Memes Generator Modal Event Handlers
+function setupMemesModalHandlers() {
+    console.log('Setting up memes modal event handlers...');
+    
+    const memesClose = document.getElementById('memes-close');
+    if (memesClose) {
+        memesClose.addEventListener('click', function() {
+            const memesModal = document.getElementById('memes-modal');
+            if (memesModal) {
+                memesModal.style.display = 'none';
+                console.log('Memes modal closed via close button');
+            }
+        });
+        console.log('Memes close button handler added');
+    } else {
+        console.error('Memes close button not found');
+    }
+    
+    // Memes modal minimize handler
+    const memesMinimize = document.querySelector('.memes-minimize');
+    if (memesMinimize) {
+        memesMinimize.addEventListener('click', function() {
+            const memesModal = document.getElementById('memes-modal');
+            if (memesModal) {
+                memesModal.style.display = 'none';
+                console.log('Memes modal minimized');
+            }
+        });
+        console.log('Memes minimize button handler added');
+    } else {
+        console.error('Memes minimize button not found');
+    }
+    
+    // Memes modal maximize handler
+    const memesMaximize = document.querySelector('.memes-maximize');
+    if (memesMaximize) {
+        memesMaximize.addEventListener('click', function() {
+            const memesModal = document.getElementById('memes-modal');
+            if (memesModal) {
+                // Toggle between maximized and normal size
+                if (memesModal.classList.contains('maximized')) {
+                    memesModal.classList.remove('maximized');
+                    memesModal.querySelector('.memes-modal-content').style.width = '90%';
+                    memesModal.querySelector('.memes-modal-content').style.height = '80%';
+                    memesModal.querySelector('.memes-modal-content').style.maxWidth = '600px';
+                    memesModal.querySelector('.memes-modal-content').style.maxHeight = '700px';
+                } else {
+                    memesModal.classList.add('maximized');
+                    memesModal.querySelector('.memes-modal-content').style.width = '95%';
+                    memesModal.querySelector('.memes-modal-content').style.height = '95%';
+                    memesModal.querySelector('.memes-modal-content').style.maxWidth = 'none';
+                    memesModal.querySelector('.memes-modal-content').style.maxHeight = 'none';
+                }
+                console.log('Memes modal toggled maximize');
+            }
+        });
+        console.log('Memes maximize button handler added');
+    } else {
+        console.error('Memes maximize button not found');
+    }
+    
+    // Close memes modal when clicking outside
+    const memesModal = document.getElementById('memes-modal');
+    if (memesModal) {
+        memesModal.addEventListener('click', function(e) {
+            if (e.target === memesModal) {
+                memesModal.style.display = 'none';
+                console.log('Memes modal closed via outside click');
+            }
+        });
+        console.log('Memes modal outside click handler added');
+    } else {
+        console.error('Memes modal element not found during setup');
+    }
+    
+    console.log('Memes modal event handlers setup complete');
+}
+
+// Meme Generator Class
+class MemeGenerator {
+    constructor() {
+        this.currentTextElement = null;
+        this.isDragging = false;
+        this.dragOffset = { x: 0, y: 0 };
+        this.templates = [];
+        this.currentTemplate = 'cat-meme.jpg';
+        
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.loadTemplates();
+        this.selectTextElement('top');
+    }
+
+    setupEventListeners() {
+        // Text selection buttons
+        document.querySelectorAll('.text-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const textType = e.target.dataset.text;
+                this.selectTextElement(textType);
+            });
+        });
+
+        // Control panel inputs
+        const textContent = document.getElementById('textContent');
+        if (textContent) {
+            textContent.addEventListener('input', (e) => {
+                this.updateTextContent(e.target.value);
+            });
+        }
+
+        const fontSelect = document.getElementById('fontSelect');
+        if (fontSelect) {
+            fontSelect.addEventListener('change', (e) => {
+                this.updateFont(e.target.value);
+            });
+        }
+
+        const strokeColor = document.getElementById('strokeColor');
+        if (strokeColor) {
+            strokeColor.addEventListener('change', (e) => {
+                this.updateStrokeColor(e.target.value);
+            });
+        }
+
+        const strokeWidth = document.getElementById('strokeWidth');
+        if (strokeWidth) {
+            strokeWidth.addEventListener('input', (e) => {
+                this.updateStrokeWidth(e.target.value);
+            });
+        }
+
+        const sizeX = document.getElementById('sizeX');
+        if (sizeX) {
+            sizeX.addEventListener('input', (e) => {
+                this.updateSize('x', e.target.value);
+            });
+        }
+
+        const sizeY = document.getElementById('sizeY');
+        if (sizeY) {
+            sizeY.addEventListener('input', (e) => {
+                this.updateSize('y', e.target.value);
+            });
+        }
+
+        const posX = document.getElementById('posX');
+        if (posX) {
+            posX.addEventListener('input', (e) => {
+                this.updatePosition('x', e.target.value);
+            });
+        }
+
+        const posY = document.getElementById('posY');
+        if (posY) {
+            posY.addEventListener('input', (e) => {
+                this.updatePosition('y', e.target.value);
+            });
+        }
+
+        const rotation = document.getElementById('rotation');
+        if (rotation) {
+            rotation.addEventListener('input', (e) => {
+                this.updateRotation(e.target.value);
+            });
+        }
+
+        const textColor = document.getElementById('textColor');
+        if (textColor) {
+            textColor.addEventListener('change', (e) => {
+                this.updateTextColor(e.target.value);
+            });
+        }
+
+        // Text overlay click events
+        const topText = document.getElementById('topText');
+        if (topText) {
+            topText.addEventListener('click', () => {
+                this.selectTextElement('top');
+            });
+        }
+
+        const bottomText = document.getElementById('bottomText');
+        if (bottomText) {
+            bottomText.addEventListener('click', () => {
+                this.selectTextElement('bottom');
+            });
+        }
+
+        // Drag functionality
+        this.setupDragAndDrop();
+
+        // Action buttons
+        const saveBtn = document.getElementById('saveBtn');
+        if (saveBtn) {
+            saveBtn.addEventListener('click', () => {
+                this.saveMeme();
+            });
+        }
+
+        const copyBtn = document.getElementById('copyBtn');
+        if (copyBtn) {
+            copyBtn.addEventListener('click', () => {
+                this.copyMeme();
+            });
+        }
+    }
+
+    selectTextElement(textType) {
+        // Remove active class from all buttons
+        document.querySelectorAll('.text-btn').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Add active class to selected button
+        const selectedBtn = document.querySelector(`[data-text="${textType}"]`);
+        if (selectedBtn) {
+            selectedBtn.classList.add('active');
+        }
+
+        // Remove selected class from all text elements
+        document.querySelectorAll('.text-overlay').forEach(el => {
+            el.classList.remove('selected');
+        });
+
+        // Add selected class to current text element
+        this.currentTextElement = document.getElementById(`${textType}Text`);
+        if (this.currentTextElement) {
+            this.currentTextElement.classList.add('selected');
+            this.updateControlPanel();
+        }
+    }
+
+    updateControlPanel() {
+        if (!this.currentTextElement) return;
+
+        const computedStyle = window.getComputedStyle(this.currentTextElement);
+        const transform = computedStyle.transform;
+        
+        // Extract values from transform matrix
+        const matrix = transform.match(/matrix\(([^)]+)\)/);
+        if (matrix) {
+            const values = matrix[1].split(', ');
+            const scaleX = parseFloat(values[0]);
+            const scaleY = parseFloat(values[3]);
+            
+            const sizeXInput = document.getElementById('sizeX');
+            const sizeYInput = document.getElementById('sizeY');
+            if (sizeXInput) sizeXInput.value = scaleX.toFixed(1);
+            if (sizeYInput) sizeYInput.value = scaleY.toFixed(1);
+        }
+
+        // Update text content
+        const textContent = this.currentTextElement.textContent;
+        const textContentInput = document.getElementById('textContent');
+        if (textContentInput) {
+            textContentInput.value = textContent;
+        }
+
+        // Update position
+        const rect = this.currentTextElement.getBoundingClientRect();
+        const canvasRect = document.getElementById('memeCanvas').getBoundingClientRect();
+        
+        const posXInput = document.getElementById('posX');
+        const posYInput = document.getElementById('posY');
+        if (posXInput) posXInput.value = Math.round(rect.left - canvasRect.left + rect.width / 2);
+        if (posYInput) posYInput.value = Math.round(rect.top - canvasRect.top);
+    }
+
+    updateTextContent(content) {
+        if (this.currentTextElement) {
+            this.currentTextElement.textContent = content;
+        }
+    }
+
+    updateFont(font) {
+        if (this.currentTextElement) {
+            this.currentTextElement.style.fontFamily = font;
+        }
+    }
+
+    updateStrokeColor(color) {
+        if (this.currentTextElement) {
+            const strokeWidth = document.getElementById('strokeWidth');
+            const width = strokeWidth ? strokeWidth.value : 6;
+            this.currentTextElement.style.textShadow = 
+                `${width}px ${width}px 0px ${color}, -${width}px -${width}px 0px ${color}, ${width}px -${width}px 0px ${color}, -${width}px ${width}px 0px ${color}`;
+        }
+    }
+
+    updateStrokeWidth(width) {
+        if (this.currentTextElement) {
+            const strokeColor = document.getElementById('strokeColor');
+            const color = strokeColor ? strokeColor.value : '#000000';
+            this.currentTextElement.style.textShadow = 
+                `${width}px ${width}px 0px ${color}, -${width}px -${width}px 0px ${color}, ${width}px -${width}px 0px ${color}, -${width}px ${width}px 0px ${color}`;
+        }
+    }
+
+    updateSize(axis, value) {
+        if (this.currentTextElement) {
+            const scaleX = axis === 'x' ? value : (document.getElementById('sizeX')?.value || 1.0);
+            const scaleY = axis === 'y' ? value : (document.getElementById('sizeY')?.value || 1.0);
+            this.currentTextElement.style.transform = `translateX(-50%) scale(${scaleX}, ${scaleY})`;
+        }
+    }
+
+    updatePosition(axis, value) {
+        if (this.currentTextElement) {
+            if (axis === 'x') {
+                this.currentTextElement.style.left = value + 'px';
+            } else {
+                this.currentTextElement.style.top = value + 'px';
+            }
+        }
+    }
+
+    updateRotation(angle) {
+        if (this.currentTextElement) {
+            const currentTransform = this.currentTextElement.style.transform;
+            const scaleMatch = currentTransform.match(/scale\(([^)]+)\)/);
+            const scale = scaleMatch ? scaleMatch[1] : '1, 1';
+            
+            this.currentTextElement.style.transform = 
+                `translateX(-50%) scale(${scale}) rotate(${angle}deg)`;
+        }
+    }
+
+    updateTextColor(color) {
+        if (this.currentTextElement) {
+            this.currentTextElement.style.color = color;
+        }
+    }
+
+    setupDragAndDrop() {
+        document.querySelectorAll('.text-overlay').forEach(element => {
+            element.addEventListener('mousedown', (e) => {
+                if (e.target === element) {
+                    this.isDragging = true;
+                    element.classList.add('dragging');
+                    
+                    const rect = element.getBoundingClientRect();
+                    this.dragOffset.x = e.clientX - rect.left;
+                    this.dragOffset.y = e.clientY - rect.top;
+                    
+                    e.preventDefault();
+                }
+            });
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (this.isDragging && this.currentTextElement) {
+                const canvasRect = document.getElementById('memeCanvas').getBoundingClientRect();
+                const x = e.clientX - canvasRect.left - this.dragOffset.x;
+                const y = e.clientY - canvasRect.top - this.dragOffset.y;
+                
+                this.currentTextElement.style.left = x + 'px';
+                this.currentTextElement.style.top = y + 'px';
+                
+                // Update position inputs
+                const posXInput = document.getElementById('posX');
+                const posYInput = document.getElementById('posY');
+                if (posXInput) posXInput.value = Math.round(x);
+                if (posYInput) posYInput.value = Math.round(y);
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (this.isDragging) {
+                this.isDragging = false;
+                document.querySelectorAll('.text-overlay').forEach(el => {
+                    el.classList.remove('dragging');
+                });
+            }
+        });
+    }
+
+    loadTemplates() {
+        // Default templates - you can add more images here
+        this.templates = [
+            { name: 'Cat Meme', src: 'memegenerator/images/cat-meme.jpg' },
+            { name: 'Woman Red Dress', src: 'memegenerator/images/woman-red-dress.jpg' },
+            { name: 'Children Field', src: 'memegenerator/images/children-field.jpg' },
+            { name: 'Group Table', src: 'memegenerator/images/group-table.jpg' },
+            { name: 'Abstract Pattern', src: 'memegenerator/images/abstract-pattern.jpg' },
+            { name: 'Anime Character', src: 'memegenerator/images/anime-character.jpg' },
+            { name: 'Animal Shape', src: 'memegenerator/images/animal-shape.jpg' },
+            { name: 'Man Suit', src: 'memegenerator/images/man-suit.jpg' },
+            { name: 'Yellow Pattern', src: 'memegenerator/images/yellow-pattern.jpg' },
+            { name: 'Older Woman', src: 'memegenerator/images/older-woman.jpg' },
+            { name: 'Black White Person', src: 'memegenerator/images/black-white-person.jpg' },
+            { name: 'Green Pattern', src: 'memegenerator/images/green-pattern.jpg' }
+        ];
+
+        this.renderTemplates();
+    }
+
+    renderTemplates() {
+        const templatesGrid = document.getElementById('templatesGrid');
+        if (!templatesGrid) return;
+        
+        templatesGrid.innerHTML = '';
+
+        this.templates.forEach((template, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = template.src;
+            thumb.alt = template.name;
+            thumb.className = 'template-thumb';
+            thumb.title = template.name;
+            
+            if (template.src.includes(this.currentTemplate)) {
+                thumb.classList.add('active');
+            }
+            
+            thumb.addEventListener('click', () => {
+                this.changeTemplate(template.src);
+                document.querySelectorAll('.template-thumb').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+            });
+            
+            templatesGrid.appendChild(thumb);
+        });
+    }
+
+    changeTemplate(src) {
+        const memeImage = document.getElementById('memeImage');
+        if (memeImage) {
+            memeImage.src = src;
+            this.currentTemplate = src.split('/').pop();
+        }
+    }
+
+    saveMeme() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const memeCanvas = document.getElementById('memeCanvas');
+        const img = document.getElementById('memeImage');
+        
+        if (!img || !memeCanvas) return;
+        
+        const ensureLoaded = () => new Promise((resolve) => {
+            if (img.complete && img.naturalWidth > 0) {
+                resolve();
+            } else {
+                img.onload = () => resolve();
+                img.onerror = () => resolve();
+            }
+        });
+        
+        ensureLoaded().then(() => {
+            const width = img.naturalWidth || img.width;
+            const height = img.naturalHeight || img.height;
+            if (!width || !height) return;
+            
+            canvas.width = width;
+            canvas.height = height;
+            
+            ctx.drawImage(img, 0, 0, width, height);
+            
+            const topText = document.getElementById('topText');
+            const bottomText = document.getElementById('bottomText');
+            if (topText) this.drawTextOnCanvas(ctx, topText, width, height);
+            if (bottomText) this.drawTextOnCanvas(ctx, bottomText, width, height);
+            
+            canvas.toBlob((blob) => {
+                if (!blob) return;
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.download = 'meme.png';
+                link.href = url;
+                document.body.appendChild(link);
+                link.click();
+                link.remove();
+                URL.revokeObjectURL(url);
+            }, 'image/png');
+        });
+    }
+
+    drawTextOnCanvas(ctx, textElement, canvasWidth, canvasHeight) {
+        const rect = textElement.getBoundingClientRect();
+        const canvasRect = document.getElementById('memeCanvas').getBoundingClientRect();
+        
+        const x = (rect.left - canvasRect.left) * (canvasWidth / canvasRect.width);
+        const y = (rect.top - canvasRect.top) * (canvasHeight / canvasRect.height);
+        
+        const computedStyle = window.getComputedStyle(textElement);
+        const fontSize = parseInt(computedStyle.fontSize) * (canvasWidth / canvasRect.width);
+        
+        ctx.font = `${fontSize}px ${computedStyle.fontFamily}`;
+        ctx.fillStyle = computedStyle.color;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        
+        // Draw stroke
+        const strokeWidth = parseInt(document.getElementById('strokeWidth')?.value || 6);
+        const strokeColor = document.getElementById('strokeColor')?.value || '#000000';
+        
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = strokeWidth * 2;
+        ctx.strokeText(textElement.textContent, x, y);
+        
+        // Draw fill
+        ctx.fillText(textElement.textContent, x, y);
+    }
+
+    copyMeme() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const memeCanvas = document.getElementById('memeCanvas');
+        const img = document.getElementById('memeImage');
+        
+        if (!img || !memeCanvas) return;
+        
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        
+        // Draw image
+        ctx.drawImage(img, 0, 0);
+        
+        // Draw text overlays
+        const topText = document.getElementById('topText');
+        const bottomText = document.getElementById('bottomText');
+        
+        if (topText) this.drawTextOnCanvas(ctx, topText, canvas.width, canvas.height);
+        if (bottomText) this.drawTextOnCanvas(ctx, bottomText, canvas.width, canvas.height);
+        
+        // Copy to clipboard
+        canvas.toBlob(blob => {
+            if (navigator.clipboard && navigator.clipboard.write) {
+                navigator.clipboard.write([
+                    new ClipboardItem({
+                        'image/png': blob
+                    })
+                ]).then(() => {
+                    alert('Meme copied to clipboard!');
+                }).catch(err => {
+                    console.error('Failed to copy meme:', err);
+                    alert('Failed to copy meme. Try saving instead.');
+                });
+            } else {
+                alert('Clipboard API not supported. Try saving instead.');
+            }
+        });
+    }
+}
+
+// Initialize meme generator when modal opens
+function initMemeGenerator() {
+    if (document.getElementById('memeCanvas')) {
+        window.memeGenerator = new MemeGenerator();
+    }
+}
 
 // Toggle SoundCloud Player Overlay
 function toggleSoundcloudPlayer() {

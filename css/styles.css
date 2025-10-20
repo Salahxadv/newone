@@ -2795,3 +2795,771 @@ body {
 .pfp-nav-btn:active {
     transform: scale(0.95);
 }
+
+/* Swag Modal Styles */
+.swag-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.swag-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    height: 80%;
+    max-height: 600px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    animation: modalSlideIn 0.4s ease-out;
+}
+
+.swag-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #333 0%, #222 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: move;
+    user-select: none;
+}
+
+.swag-window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.swag-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.swag-close {
+    background: #ff5f57;
+}
+
+.swag-close:hover {
+    background: #ff3b30;
+    transform: scale(1.1);
+}
+
+.swag-minimize {
+    background: #ffbd2e;
+}
+
+.swag-minimize:hover {
+    background: #ff9500;
+    transform: scale(1.1);
+}
+
+.swag-maximize {
+    background: #28ca42;
+}
+
+.swag-maximize:hover {
+    background: #20b038;
+    transform: scale(1.1);
+}
+
+.swag-title-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+}
+
+.swag-title-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.swag-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.swag-container {
+    padding: 0;
+    height: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    overflow: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .swag-modal-content {
+        width: 95%;
+        height: 85%;
+    }
+    
+    .swag-container {
+        padding: 20px;
+    }
+    
+    .swag-content h2 {
+        font-size: 24px;
+    }
+    
+    .swag-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .swag-item {
+        padding: 15px;
+    }
+    
+    .swag-item-image {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Snake Game Styles */
+.snake-game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
+
+.snake-canvas {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    cursor: crosshair;
+    transition: all 0.3s ease;
+    object-fit: contain;
+}
+
+/* Responsive Snake Game */
+@media (max-width: 768px) {
+    .snake-canvas {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Puzzle Game Modal Styles */
+.puzzle-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.puzzle-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    height: 80%;
+    max-height: 700px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    animation: modalSlideIn 0.4s ease-out;
+}
+
+.puzzle-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #333 0%, #222 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: move;
+    user-select: none;
+}
+
+.puzzle-window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.puzzle-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.puzzle-close {
+    background: #ff5f57;
+}
+
+.puzzle-close:hover {
+    background: #ff3b30;
+    transform: scale(1.1);
+}
+
+.puzzle-minimize {
+    background: #ffbd2e;
+}
+
+.puzzle-minimize:hover {
+    background: #ff9500;
+    transform: scale(1.1);
+}
+
+.puzzle-maximize {
+    background: #28ca42;
+}
+
+.puzzle-maximize:hover {
+    background: #20b038;
+    transform: scale(1.1);
+}
+
+.puzzle-title-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+}
+
+.puzzle-title-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.puzzle-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.puzzle-container {
+    padding: 0;
+    height: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    overflow: hidden;
+}
+
+.puzzle-game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #000000;
+}
+
+#fifteen-puzzle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#fifteen {
+    border: 2px solid #444444;
+    border-radius: 8px;
+    background: #000000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+#fifteen:hover {
+    border-color: #00ff88;
+    box-shadow: 0 4px 20px rgba(0, 255, 136, 0.2);
+}
+
+/* Puzzle piece styles */
+.slot {
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.slot:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0, 255, 136, 0.3);
+}
+
+/* Responsive Puzzle Game */
+@media (max-width: 768px) {
+    .puzzle-modal-content {
+        width: 95%;
+        height: 85%;
+    }
+    
+    .puzzle-container {
+        padding: 10px;
+    }
+    
+    #fifteen {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+/* Memes Generator Modal Styles */
+.memes-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.memes-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    height: 80%;
+    max-height: 700px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    animation: modalSlideIn 0.4s ease-out;
+}
+
+.memes-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #333 0%, #222 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: move;
+    user-select: none;
+}
+
+.memes-window-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.memes-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.memes-close {
+    background: #ff5f57;
+}
+
+.memes-close:hover {
+    background: #ff3b30;
+    transform: scale(1.1);
+}
+
+.memes-minimize {
+    background: #ffbd2e;
+}
+
+.memes-minimize:hover {
+    background: #ff9500;
+    transform: scale(1.1);
+}
+
+.memes-maximize {
+    background: #28ca42;
+}
+
+.memes-maximize:hover {
+    background: #20b038;
+    transform: scale(1.1);
+}
+
+.memes-title-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    justify-content: center;
+}
+
+.memes-title-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.memes-title {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.memes-container {
+    padding: 30px;
+    height: calc(100% - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+}
+
+.memes-content {
+    text-align: center;
+}
+
+.memes-content h2 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.memes-content p {
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Meme Generator Styles */
+.meme-generator {
+    display: flex;
+    height: calc(100% - 120px);
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Canvas Section */
+.canvas-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.meme-canvas {
+    position: relative;
+    max-width: 600px;
+    max-height: 600px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+#memeImage {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.text-overlay {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Impact', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 2px 2px 0px #000000, -2px -2px 0px #000000, 2px -2px 0px #000000, -2px 2px 0px #000000;
+    cursor: move;
+    user-select: none;
+    padding: 10px;
+    border: 2px dashed transparent;
+    transition: border-color 0.3s ease;
+}
+
+.text-overlay:hover {
+    border-color: #00ff88;
+}
+
+.text-overlay.selected {
+    border-color: #00ff88;
+    border-style: solid;
+}
+
+.top-text {
+    top: 20px;
+    font-size: 32px;
+}
+
+.bottom-text {
+    bottom: 20px;
+    font-size: 32px;
+}
+
+/* Control Panel */
+.control-panel {
+    width: 280px;
+    background: #2a2a2a;
+    border-radius: 10px;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.panel-section h3 {
+    margin-bottom: 20px;
+    color: #00ff88;
+    font-size: 16px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #cccccc;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #1a1a1a;
+    color: #ffffff;
+    font-size: 12px;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: #00ff88;
+}
+
+.stroke-controls,
+.size-controls,
+.position-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.stroke-controls input[type="color"] {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+}
+
+.stroke-controls input[type="number"] {
+    flex: 1;
+}
+
+.size-controls input,
+.position-controls input {
+    flex: 1;
+}
+
+.text-selection {
+    margin-top: 20px;
+}
+
+.text-btn {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background: #1a1a1a;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 12px;
+}
+
+.text-btn:hover {
+    background: #333;
+}
+
+.text-btn.active {
+    background: #00ff88;
+    color: #000000;
+}
+
+/* Templates Section */
+.templates-section {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2a2a2a;
+    padding: 15px;
+    border-top: 1px solid #444;
+    height: 120px;
+}
+
+.templates-section h4 {
+    margin-bottom: 10px;
+    color: #00ff88;
+    font-size: 14px;
+}
+
+.templates-grid {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.template-thumb {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+    border: 2px solid transparent;
+}
+
+.template-thumb:hover {
+    transform: scale(1.1);
+    border-color: #00ff88;
+}
+
+.template-thumb.active {
+    border-color: #00ff88;
+}
+
+/* Action Buttons */
+.action-buttons {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    gap: 8px;
+}
+
+.btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+}
+
+.btn-save:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-copy {
+    background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%);
+    color: #000000;
+}
+
+.btn-copy:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+}
+
+/* Drag and Drop Styles */
+.text-overlay.dragging {
+    opacity: 0.7;
+    z-index: 1000;
+}
+
+/* Responsive Memes Generator */
+@media (max-width: 768px) {
+    .memes-modal-content {
+        width: 95%;
+        height: 85%;
+    }
+    
+    .memes-container {
+        padding: 20px;
+    }
+    
+    .memes-content h2 {
+        font-size: 24px;
+    }
+}
